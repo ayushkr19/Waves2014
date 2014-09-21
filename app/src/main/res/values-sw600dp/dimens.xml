@@ -1,0 +1,18 @@
+<resources>
+    <dimen name="slidingpane_events_margin">0dp</dimen>
+    <dimen name="events_detail_margin">10dp</dimen>
+    <dimen name="events_detail_margin_leftright">7dp</dimen>
+    <dimen name="padding_border_events_activity">10dp</dimen>
+
+    <dimen name="slidingpane_list_width">350dp</dimen>
+
+    <dimen name="fragment_padding">8dp</dimen>
+    <dimen name="normal_padding">4dp</dimen>
+
+    <dimen name="line_spacing">7dp</dimen>
+    <dimen name="line_spacing_cat">5dp</dimen>
+    <dimen name="margin_text_cat">3dp</dimen>
+
+    <dimen name="maxheight_detail">300dp</dimen>
+
+</resources>

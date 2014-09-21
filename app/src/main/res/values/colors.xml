@@ -7,4 +7,13 @@
     <!-- Pressed state color for a grid -->
     <color name="touch_overlay_bg_color">#33999999</color>
 
+    <color name="header_text_events">#001285</color>
+
+    <color name="body_text_1">#ff000000</color>
+    <color name="body_text_2">#77000000</color>
+    <color name="accent_1">#ff4d90fe</color>
+    <color name="sliding_pane_content_fade">#cceeeeee</color>
+
+
+
 </resources>

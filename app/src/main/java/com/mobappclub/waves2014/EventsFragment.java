@@ -41,31 +41,31 @@ public class EventsFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch(position){
                     case 0:
-                        Intent i = new Intent(getActivity(), EventListActivity.class);
+                        Intent i = new Intent(getActivity(), EventsActivity.class);
                         startActivity(i);
                         break;
                     case 1:
-                        Intent f = new Intent(getActivity(), EventListActivity.class);
+                        Intent f = new Intent(getActivity(), EventsActivity.class);
                         startActivity(f);
                         break;
                     case 2:
-                        Intent g = new Intent(getActivity(), EventListActivity.class);
+                        Intent g = new Intent(getActivity(), EventsActivity.class);
                         startActivity(g);
                         break;
                     case 3:
-                        Intent h = new Intent(getActivity(), EventListActivity.class);
+                        Intent h = new Intent(getActivity(), EventsActivity.class);
                         startActivity(h);
                         break;
                     case 4:
-                        Intent j = new Intent(getActivity(), EventListActivity.class);
+                        Intent j = new Intent(getActivity(), EventsActivity.class);
                         startActivity(j);
                         break;
                     case 5:
-                        Intent k = new Intent(getActivity(), EventListActivity.class);
+                        Intent k = new Intent(getActivity(), EventsActivity.class);
                         startActivity(k);
                         break;
                     case 6:
-                        Intent l = new Intent(getActivity(), EventListActivity.class);
+                        Intent l = new Intent(getActivity(), EventsActivity.class);
                         startActivity(l);
                     default:
                         break;

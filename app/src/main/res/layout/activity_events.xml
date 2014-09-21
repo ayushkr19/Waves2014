@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SlidingPaneLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/slidingpanelayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <FrameLayout
+        android:layout_width="@dimen/slidingpane_list_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:layout_margin="@dimen/slidingpane_events_margin"
+        android:padding="@dimen/padding_border_events_activity" >
+
+        <fragment
+            android:id="@+id/fragment_events_list"
+            android:name="com.mobappclub.waves2014.EventsListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:fadeScrollbars="false"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="700dp"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/slidingpane_events_margin"
+        android:layout_weight="1"
+        android:padding="@dimen/padding_border_events_activity"
+        android:clickable="true" >
+
+        <fragment
+            android:id="@+id/fragment_events_details"
+            android:name="com.mobappclub.waves2014.EventsDetailFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_events_detail" />
+    </FrameLayout>
+
+</android.support.v4.widget.SlidingPaneLayout>
