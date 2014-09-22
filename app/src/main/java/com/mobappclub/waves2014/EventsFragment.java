@@ -13,6 +13,8 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nhaarman.listviewanimations.appearance.simple.AlphaInAnimationAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +37,11 @@ public class EventsFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_events_gridview, container, false);
         GridView gridView = (GridView) rootView.findViewById(R.id.grid);
         // Initialize the adapter with all the Menu_Items. Set the adapter on the {@link GridView}.
-        gridView.setAdapter(new Menu_ItemAdapter(inflater,createAllMenu_Items()));
+
+        Menu_ItemAdapter menu_itemAdapter = new Menu_ItemAdapter(inflater,createAllMenu_Items());
+        AlphaInAnimationAdapter alphaInAnimationAdapter = new AlphaInAnimationAdapter(menu_itemAdapter);
+        alphaInAnimationAdapter.setAbsListView(gridView);
+        gridView.setAdapter(alphaInAnimationAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
