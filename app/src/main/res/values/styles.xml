@@ -5,4 +5,31 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="TextHeader">
+        <item name="android:textSize">@dimen/text_size_xlarge</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/header_text_events</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="TextHeaderAbout">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/header_text_events</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="TextHeaderSub">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/body_text_2</item>
+    </style>
+
+    <style name="TextHeader2">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/accent_1</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+
 </resources>

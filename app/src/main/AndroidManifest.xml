@@ -17,17 +17,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EventListActivity"
+            android:name=".EventsActivity"
             android:label="@string/title_event_list" >
         </activity>
-        <activity
-            android:name=".EventDetailActivity"
-            android:label="@string/title_event_detail"
-            android:parentActivityName=".EventListActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.mobappclub.waves2014.EventListActivity" />
-        </activity>
+
     </application>
 
 </manifest>

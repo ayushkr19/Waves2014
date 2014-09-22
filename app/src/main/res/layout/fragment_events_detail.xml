@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/fragment_event_detail_container_layout_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/events_detail_margin"
+        android:layout_marginRight="@dimen/events_detail_margin"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/normal_padding"
+        android:paddingTop="@dimen/normal_padding" >
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="@dimen/normal_padding_leftright"
+            android:paddingRight="@dimen/normal_padding_leftright"
+            android:paddingTop="@dimen/normal_padding"
+            android:text="Click an event\n on the left" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fragment_event_detail_container_layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/normal_padding"
+        android:paddingTop="@dimen/normal_padding"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/tv_name_event"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/events_detail_margin"
+            android:layout_marginRight="@dimen/events_detail_margin"
+            android:gravity="center"
+            android:paddingLeft="@dimen/normal_padding_leftright"
+            android:paddingRight="@dimen/normal_padding_leftright"
+            android:paddingTop="@dimen/normal_padding"
+            android:text="Event Heading" />
+
+        <TextView
+            android:id="@+id/tv_location"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/events_detail_margin"
+            android:layout_marginRight="@dimen/events_detail_margin"
+            android:paddingBottom="@dimen/normal_padding"
+            android:paddingLeft="@dimen/normal_padding_leftright"
+            android:paddingRight="@dimen/normal_padding_leftright"
+            android:text="@string/location" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@android:color/darker_gray" />
+
+    <ScrollView
+        android:id="@+id/fragment_event_detail_container_layout_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/events_detail_margin"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+                <ImageView
+                    android:id="@+id/imgv"
+                    android:layout_width="match_parent"
+                    android:maxHeight="@dimen/maxheight_detail"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+
+
+                    />
+
+                <ProgressBar
+                    android:id="@+id/progress"
+                    style="?android:attr/progressBarStyleLargeInverse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:indeterminate="true" />
+            </RelativeLayout>
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/events_detail_margin_leftright"
+                android:layout_marginRight="@dimen/events_detail_margin_leftright"
+                android:layout_marginTop="@dimen/events_detail_margin"
+                android:paddingLeft="@dimen/normal_padding"
+                android:text="DESCRIPTION" />
+
+            <TextView
+                android:id="@+id/tv_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_text_cat"
+                android:layout_marginBottom="@dimen/events_detail_margin"
+                android:layout_marginLeft="@dimen/events_detail_margin_leftright"
+                android:layout_marginRight="@dimen/events_detail_margin_leftright"
+                android:includeFontPadding="true"
+                android:autoLink="all"
+                android:lineSpacingExtra="@dimen/line_spacing"
+                android:paddingLeft="@dimen/normal_padding"
+                android:paddingRight="@dimen/normal_padding"
+
+                android:textIsSelectable="true" />
+
+            <TextView
+                android:id="@+id/tv_contact"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/events_detail_margin_header"
+                android:layout_marginLeft="@dimen/events_detail_margin_leftright"
+                android:layout_marginRight="@dimen/events_detail_margin_leftright"
+                android:layout_marginTop="@dimen/events_detail_margin"
+                android:paddingLeft="@dimen/normal_padding"
+                android:text="CONTACT" />
+
+            <LinearLayout
+                android:id="@+id/ll_em1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/events_detail_margin_leftright"
+                android:layout_marginRight="@dimen/events_detail_margin_leftright"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/em1_name_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="true"
+                    android:lineSpacingExtra="@dimen/line_spacing"
+                    android:paddingLeft="@dimen/normal_padding"
+                    android:paddingRight="@dimen/normal_padding"
+                    android:autoLink="all"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/em1_phone_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoLink="all"
+                    android:textStyle="bold"
+                    android:includeFontPadding="true"
+                    android:lineSpacingExtra="@dimen/line_spacing"
+                    android:paddingLeft="@dimen/normal_padding"
+                    android:paddingRight="@dimen/normal_padding"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_em2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/events_detail_margin"
+                android:layout_marginLeft="@dimen/events_detail_margin_leftright"
+                android:layout_marginRight="@dimen/events_detail_margin_leftright"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/em2_name_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="true"
+                    android:lineSpacingExtra="@dimen/line_spacing"
+                    android:paddingLeft="@dimen/normal_padding"
+                    android:paddingRight="@dimen/normal_padding"
+                    android:autoLink="all"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/em2_phone_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoLink="all"
+                    android:textStyle="bold"
+                    android:includeFontPadding="true"
+                    android:lineSpacingExtra="@dimen/line_spacing"
+                    android:paddingLeft="@dimen/normal_padding"
+                    android:paddingRight="@dimen/normal_padding"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
