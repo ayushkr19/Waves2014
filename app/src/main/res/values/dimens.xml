@@ -7,26 +7,27 @@
          https://developer.android.com/design/patterns/navigation-drawer.html -->
     <dimen name="navigation_drawer_width">240dp</dimen>
 
-    <dimen name="slidingpane_events_margin">0dp</dimen>
-    <dimen name="events_detail_margin">7dp</dimen>
-    <dimen name="events_detail_margin_leftright">2dp</dimen>
-    <dimen name="events_detail_margin_header">2dp</dimen>
-    <dimen name="padding_border_events_activity">5dp</dimen>
-
-    <dimen name="maxheight_detail">400dp</dimen>
-    <dimen name="slidingpane_list_width">250dp</dimen>
-
-
     <dimen name="fragment_margin">25dp</dimen>
     <dimen name="fragment_padding">0dp</dimen>
     <dimen name="normal_padding">5dp</dimen>
+    <dimen name="normal_padding_leftright">0dp</dimen>
+    <dimen name="slidingpane_events_margin">0dp</dimen>
+    <dimen name="padding_border_events_activity">5dp</dimen>
+    <dimen name="events_detail_margin">7dp</dimen>
+    <dimen name="events_detail_margin_leftright">2dp</dimen>
+    <dimen name="events_detail_margin_header">2dp</dimen>
+    <dimen name="slidingpane_list_width">250dp</dimen>
+    <dimen name="maxheight_detail">400dp</dimen>
+
+    <dimen name="line_spacing">5dp</dimen>
+    <dimen name="line_spacing_cat">2dp</dimen>
+    <dimen name="margin_text_cat">2dp</dimen>
+
     <dimen name="content_padding_normal">16dp</dimen>
     <dimen name="text_size_small">12sp</dimen>
     <dimen name="text_size_medium">14sp</dimen>
     <dimen name="text_size_large">18sp</dimen>
     <dimen name="text_size_xlarge">18sp</dimen>
 
-    <dimen name="line_spacing">5dp</dimen>
-    <dimen name="line_spacing_cat">2dp</dimen>
-    <dimen name="margin_text_cat">2dp</dimen>
+
 </resources>

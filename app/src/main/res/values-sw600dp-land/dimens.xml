@@ -6,7 +6,7 @@
     <dimen name="slidingpane_events_margin">150dp</dimen>
     <dimen name="padding_border_events_activity">10dp</dimen>
     <dimen name="events_detail_margin">10dp</dimen>
-    <dimen name="events_detail_margin_LeftRight">7dp</dimen>
+    <dimen name="events_detail_margin_leftright">7dp</dimen>
     <dimen name="slidingpane_list_width">250dp</dimen>
     <dimen name="maxheight_detail">250dp</dimen>
 
