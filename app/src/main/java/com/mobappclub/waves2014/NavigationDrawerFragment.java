@@ -22,6 +22,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
  * See the <a href="https://developer.android.com/design/patterns/navigation-drawer.html#Interaction">
@@ -97,7 +99,15 @@ public class NavigationDrawerFragment extends Fragment {
                 selectItem(position);
             }
         });
-        mDrawerListView.setAdapter(new ArrayAdapter<String>(
+        ArrayList<String> titles = new ArrayList<String>();
+        titles.add("Home");
+        titles.add("Events");
+        titles.add("Professional Nights");
+        titles.add("Specials");
+        titles.add("Schedule");
+        titles.add("Sponsors");
+        titles.add("Registrations");
+       /* mDrawerListView.setAdapter(new ArrayAdapter<String>(
                 getActionBar().getThemedContext(),
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,
@@ -110,8 +120,9 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.navdrawer_section6),
                         getString(R.string.navdrawer_section7)
 
-                }));
-        mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
+                }));*/
+        mDrawerListView.setAdapter(new NavigationDrawerAdapter(getActivity(),titles));
+        //mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
     }
 
