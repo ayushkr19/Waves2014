@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/home_menu_height">
+
+    <ImageView
+        android:id="@+id/imgHomeBackground"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_menu_height"
+        android:scaleType="center"
+        android:src="@drawable/home_menu_background"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/small_margin">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WAVES 2014"
+            android:id="@+id/txtEmailId"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:paddingTop="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/small_margin"
+            android:textSize="@dimen/regular_text_size"
+             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lights! Camera! Mayhem!"
+            android:id="@+id/txtDeviceName"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_text_size"
+            android:layout_below="@+id/txtEmailId">
+
+            </TextView>
+    </RelativeLayout>
+</FrameLayout>
