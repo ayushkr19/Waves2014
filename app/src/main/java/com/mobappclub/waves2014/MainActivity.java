@@ -41,7 +41,13 @@ public class MainActivity extends Activity
          mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
+        DatabaseHandler db=new DatabaseHandler(getApplicationContext());
+        if(db.getEventsCount()==0)
+        {
+            InitializeSchedule schedule=new InitializeSchedule(db);
+            schedule.initialize();
 
+        }
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
@@ -73,7 +79,7 @@ public class MainActivity extends Activity
                 break;
             case 3:
                 break;
-            case 4:Intent f=new Intent(MainActivity.this,ScheduleActivity.class);
+            case 4:Intent f=new Intent(MainActivity.this,ScheduleActivity2.class);
                 startActivity(f);
                 break;
             case 5:Intent i=new Intent(MainActivity.this,SponsorsActivity.class);

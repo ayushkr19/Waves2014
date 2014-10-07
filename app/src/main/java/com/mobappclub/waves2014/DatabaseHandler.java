@@ -50,8 +50,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                     + ")" ;
             db.execSQL(CREATE_SCHEDULE_TABLE);
 
-            InitializeSchedule p=new InitializeSchedule(this);
-             p.initialize();
+
     }
 
     // Upgrading database
@@ -89,7 +88,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public List<ScheduleObject> getAllEvents(int day) {
         List<ScheduleObject> eventList = new ArrayList<ScheduleObject>();
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLE_SCHEDULE +" WHERE "+KEY_DAY_NO+"="+day+ " SORT BY "+KEY_START_TIME;
+        String selectQuery = "SELECT  * FROM " + TABLE_SCHEDULE +" WHERE "+KEY_DAY_NO+"="+day+ " ORDER BY "+KEY_START_TIME;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
