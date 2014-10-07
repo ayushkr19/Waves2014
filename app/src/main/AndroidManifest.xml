@@ -20,6 +20,13 @@
             android:name=".EventsActivity"
             android:label="@string/title_event_list" >
         </activity>
+        <activity
+            android:name=".ScheduleActivity"
+            android:label="schedule" >
+        </activity>
+
+
+
 
     </application>
 
