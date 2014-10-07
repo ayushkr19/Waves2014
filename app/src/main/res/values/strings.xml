@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">Waves2014</string>
-
     <string name="navdrawer_section1">Home</string>
     <string name="navdrawer_section2">Events</string>
     <string name="navdrawer_section3">Professional Nights</string>
@@ -10,15 +9,19 @@
     <string name="navdrawer_section5">Schedule</string>
     <string name="navdrawer_section6">Sponsors</string>
     <string name="navdrawer_section7">Registrations</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
     <string name="title_event_list">Events</string>
     <string name="title_event_detail">Event Detail</string>
-
     <string name="alpha">0.8</string>
     <string name="location"> Location to be announced</string>
+    <string name="title_activity_schedule_activity2">ScheduleActivity2</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

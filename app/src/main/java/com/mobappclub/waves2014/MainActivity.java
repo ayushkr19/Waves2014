@@ -6,6 +6,7 @@ import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -37,11 +38,16 @@ public class MainActivity extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mNavigationDrawerFragment = (NavigationDrawerFragment)
+         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
+        DatabaseHandler db=new DatabaseHandler(getApplicationContext());
+        if(db.getEventsCount()==0)
+        {
+            InitializeSchedule schedule=new InitializeSchedule(db);
+            schedule.initialize();
 
+        }
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
@@ -73,9 +79,11 @@ public class MainActivity extends Activity
                 break;
             case 3:
                 break;
-            case 4:
+            case 4:Intent f=new Intent(MainActivity.this,ScheduleActivity2.class);
+                startActivity(f);
                 break;
-            case 5:
+            case 5:Intent i=new Intent(MainActivity.this,SponsorsActivity.class);
+                 startActivity(i);
                 break;
             case 6:
                 break;
