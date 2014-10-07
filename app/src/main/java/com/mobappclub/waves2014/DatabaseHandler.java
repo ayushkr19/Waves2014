@@ -69,8 +69,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      */
 
     // Adding new Event
-    void addEvent(ScheduleObject event, SQLiteDatabase db) {
-        //SQLiteDatabase db = this.getWritableDatabase();
+    void addEvent(ScheduleObject event) {
+        SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
 
