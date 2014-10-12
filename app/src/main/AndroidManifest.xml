@@ -20,13 +20,9 @@
             android:name="com.mobappclub.waves2014.EventsActivity"
             android:label="@string/title_event_list" >
         </activity>
-        <activity
+               <activity
             android:name="com.mobappclub.waves2014.ScheduleActivity"
-            android:label="schedule" >
-        </activity>
-        <activity
-            android:name="com.mobappclub.waves2014.ScheduleActivity2"
-            android:label="@string/title_activity_schedule_activity2" >
+            android:label="@string/title_activity_schedule_activity" >
         </activity>
     </application>
 

@@ -66,7 +66,7 @@ public class MainActivity extends Activity
         switch(position){
             case 0:
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .replace(R.id.container,new HomeFragment())
                         .commit();
 
                 break;
@@ -79,7 +79,7 @@ public class MainActivity extends Activity
                 break;
             case 3:
                 break;
-            case 4:Intent f=new Intent(MainActivity.this,ScheduleActivity2.class);
+            case 4:Intent f=new Intent(MainActivity.this,ScheduleActivity.class);
                 startActivity(f);
                 break;
             case 5:Intent i=new Intent(MainActivity.this,SponsorsActivity.class);
