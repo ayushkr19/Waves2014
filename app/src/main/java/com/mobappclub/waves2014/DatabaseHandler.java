@@ -20,6 +20,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
        // Database Name
     private static final String DATABASE_NAME = "MainDatabases";
 
+    // Sponsors table name
+
+    private static final String TABLE_SPONSOR = "sponsors";
+
 
     // Events table name
     private static final String TABLE_EVENTS = "events";
@@ -41,7 +45,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_END_TIME = "endtimeofevent";
     private static final String KEY_DAY_NO = "dayofevent";
     private static final String KEY_FOLLOWED="follow";
-      
+
+    // Column names for sponsors
+
+    private static final String KEY_SPONSORNAME = "sponsorname";
+    private static final String KEY_IMGLINK = "sponsorimagelink";
+    private static final String KEY_LINK = "sponsorlink";
+
+
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
@@ -73,6 +84,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_FOLLOWED + " INTEGER"
                 + ")" ;
         db.execSQL(CREATE_EVENTS_TABLE);
+        // Create Sponsor table
+        String CREATE_SPONSOR_TABLE = "CREATE TABLE " + TABLE_SPONSOR + "("
+                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_SPONSORNAME + " TEXT,"
+                + KEY_IMGLINK + " TEXT," + KEY_LINK + " TEXT" + ")";
+        db.execSQL(CREATE_SPONSOR_TABLE);
+
 
     }
 
@@ -82,6 +99,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // Drop older table if existed
 
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_EVENTS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SPONSOR);
 
         // Create tables again
         onCreate(db);
@@ -115,6 +133,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(KEY_FOLLOWED, event.getFollowed());
         // Inserting Row
         db.insert(TABLE_EVENTS, null, values);
+        db.close(); // Closing database connection
+
+    }
+    // Adds a new Sponsor
+    void addSponsor(SponsorObject sponsor) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(KEY_SPONSORNAME, sponsor.getNameofSponsor());
+        values.put(KEY_IMGLINK, sponsor.getImgUrl());
+        values.put(KEY_LINK, sponsor.getLink());
+
+        // Inserting Row
+        db.insert(TABLE_SPONSOR, null, values);
         db.close(); // Closing database connection
 
     }
@@ -195,6 +227,33 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // return event list
         return eventList;
     }
+    // Getting all sponsors
+    public List<SponsorObject> getAllSponsors() {
+        List<SponsorObject> sponsorList = new ArrayList<SponsorObject>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_SPONSOR;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+
+                SponsorObject sponsor = new SponsorObject();
+                sponsor.setID(Integer.parseInt(cursor.getString(0)));
+                sponsor.setName(cursor.getString(1));
+                sponsor.setImgUrl(cursor.getString(2));
+                sponsor.setLink(cursor.getString(3));
+                sponsorList.add(sponsor);
+            } while (cursor.moveToNext());
+        }
+        db.close();
+        cursor.close();
+        // return event list
+        return sponsorList;
+
+    }
 
 
 
@@ -232,7 +291,29 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-   
+    // Deleting single sponsor
+    public void deleteSponsor(SponsorObject sp) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_SPONSOR , KEY_ID + " = ?",
+                new String[] { String.valueOf(sp.getID()) });
+        db.close();
+    }
+    // Getting sponsor Count
+    public int getSponsorCount() {
+        String countQuery = "SELECT  * FROM " + TABLE_SPONSOR;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        int count = cursor.getCount();
+
+        // return count
+
+        cursor.close();
+        db.close();
+        return count;
+
+    }
+
+
     // Getting event Count
     public int getEventsCount() {
         String countQuery = "SELECT  * FROM " + TABLE_EVENTS;
