@@ -16,7 +16,7 @@ public InitializeSchedule(DatabaseHandler db)  {
 public void initialize()
 {
 
-    ob1 = new EventsObject(1,"Test1","1","Description","http://www.dddd.com","500","A-506","http://www.dddd.com","16:00","18:00",0,"asa","342","asa","111",0);
+    ob1 = new EventsObject(1,"Test1","1","Description","http://www.dddd.com","500","A-506","http://www.dddd.com","16:00","23:00",0,"asa","342","asa","111",0);
     ob2 = new EventsObject(2,"Test2","1","Description","http://www.dddd.com","500","A-506","http://www.dddd.com","12:00","13:00",1,"asa","342","asa","111",0);
     ob3 = new EventsObject(3,"Test3","1","Description","http://www.dddd.com","500","A-506","http://www.dddd.com","14:00","15:00",2,"asa","342","asa","111",0);
     ob4 = new EventsObject(4,"Test4","1","Description","http://www.dddd.com","500","A-506","http://www.dddd.com","15:00","18:00",3,"asa","342","asa","111",0);

@@ -2,6 +2,7 @@ package com.mobappclub.waves2014;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -23,6 +24,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class ScheduleActivity extends Activity implements ActionBar.TabListener {
@@ -45,7 +47,7 @@ public class ScheduleActivity extends Activity implements ActionBar.TabListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_schedule_activity2);
+        setContentView(R.layout.activity_schedule_activity);
 
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
@@ -78,22 +80,25 @@ public class ScheduleActivity extends Activity implements ActionBar.TabListener 
             // this tab is selected.
 
             tab[i] = actionBar.newTab()
-                            .setText(mSectionsPagerAdapter.getPageTitle(i))
-                            .setTabListener(this);
+                    .setText(mSectionsPagerAdapter.getPageTitle(i))
+                    .setTabListener(this);
             actionBar.addTab(tab[i]);
         }
-        int j=0;
-        Calendar rightnow= Calendar.getInstance();
-        if(rightnow.get(Calendar.DAY_OF_MONTH)==8 &&rightnow.get(Calendar.MONTH)==9)
-        {
-           j=1;
+        int currentDay;
+        Calendar rightnow = Calendar.getInstance();
+        if (rightnow.get(Calendar.DAY_OF_MONTH) == Constants.DAY_0 && rightnow.get(Calendar.MONTH) == Constants.MONTH_0) {
+            currentDay = 0;
+        } else if(rightnow.get(Calendar.DAY_OF_MONTH) == Constants.DAY_1 && rightnow.get(Calendar.MONTH) == Constants.MONTH_1){
+            currentDay = 1;
+        }else if(rightnow.get(Calendar.DAY_OF_MONTH) == Constants.DAY_2 && rightnow.get(Calendar.MONTH) == Constants.MONTH_2){
+            currentDay = 2;
+        }else{
+            currentDay = 3;
         }
-        else
-        {
-            j=2;
-        }
-
-       tab[j].select();
+        int hours = rightnow.get(Calendar.HOUR_OF_DAY);
+        int minutes = rightnow.get(Calendar.MINUTE);
+        Toast.makeText(this, "Hrs : " + hours + " min: " + minutes, Toast.LENGTH_SHORT).show();
+        tab[currentDay].select();
     }
 
 
@@ -186,6 +191,7 @@ public class ScheduleActivity extends Activity implements ActionBar.TabListener 
         List<EventsObject> list1;
         MyAdapter adapt1;
         protected DatabaseHandler db;
+
         /**
          * Returns a new instance of this fragment for the given section
          * number.
@@ -203,11 +209,11 @@ public class ScheduleActivity extends Activity implements ActionBar.TabListener 
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_schedule_activity2, container, false);
-            Bundle args=getArguments();
-            int dayNumber=args.getInt(DAY_NUMBER);
-            db=new DatabaseHandler(getActivity()) ;
+            Bundle args = getArguments();
+            int dayNumber = args.getInt(DAY_NUMBER);
+            db = new DatabaseHandler(getActivity());
             list1 = db.getDayEvents(dayNumber);
             adapt1 = new MyAdapter(getActivity(), R.layout.schedule_list_inner_view, list1);
             ListView listTask1 = (ListView) rootView.findViewById(R.id.listView1);
@@ -232,21 +238,48 @@ public class ScheduleActivity extends Activity implements ActionBar.TabListener 
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            TextView chk = null;
+            TextView startTime = null;
+            TextView endTime = null;
+            TextView eventName = null;
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) context
                         .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = inflater.inflate(R.layout.schedule_list_inner_view,
                         parent, false);
-                chk = (TextView) convertView.findViewById(R.id.textView1);
-                convertView.setTag(chk);
+                startTime = (TextView) convertView.findViewById(R.id.startTime_tv);
+                endTime = (TextView) convertView.findViewById(R.id.endTime_tv);
+                eventName = (TextView) convertView.findViewById(R.id.eventName_tv);
+
+                convertView.setTag(startTime);
+                convertView.setTag(endTime);
+                convertView.setTag(eventName);
 
             } else {
-                chk = (TextView) convertView.getTag();
+                startTime = (TextView) convertView.getTag();
+                endTime = (TextView) convertView.getTag();
+                eventName = (TextView) convertView.getTag();
             }
-            EventsObject current=scheduleList.get(position);
-            chk.setText(current.getStart_time()+" "+current.getEnd_time()+" "+current.getName());
-            chk.setTag(current);
+            EventsObject current = scheduleList.get(position);
+            startTime.setText(current.getStart_time());
+            startTime.setTag(current);
+
+            endTime.setText(current.getEnd_time());
+            endTime.setTag(current);
+
+            eventName.setText(current.getName());
+            eventName.setTag(current);
+
+            Calendar rightnow = Calendar.getInstance();
+            int hours = rightnow.get(Calendar.HOUR_OF_DAY);
+            int minutes = rightnow.get(Calendar.MINUTE);
+            String time = String.valueOf(hours) +":" + String.valueOf(minutes);
+
+            if(time.compareTo(current.getStart_time()) > 0 && time.compareTo(current.getEnd_time())< 0){
+                convertView.findViewById(R.id.ongoing).setVisibility(View.VISIBLE);
+            }else {
+                convertView.findViewById(R.id.ongoing).setVisibility(View.INVISIBLE);
+            }
+
             return convertView;
 
         }
