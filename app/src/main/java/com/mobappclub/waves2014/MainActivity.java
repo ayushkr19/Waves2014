@@ -84,8 +84,9 @@ public class MainActivity extends Activity
             case 4:Intent f=new Intent(MainActivity.this,ScheduleActivity.class);
                 startActivity(f);
                 break;
-            case 5:Intent i=new Intent(MainActivity.this,SponsorsActivity.class);
-                 startActivity(i);
+            case 5:fragmentManager.beginTransaction()
+                    .replace(R.id.container, new SponsorsFragment())
+                    .commit();
                 break;
             case 6:
                 break;
