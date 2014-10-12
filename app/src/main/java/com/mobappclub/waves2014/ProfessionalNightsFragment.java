@@ -19,11 +19,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Ayush on 19-09-14.
+ * Created by Ayush on 12-10-14.
  */
-public class EventsFragment extends Fragment {
-
-    public EventsFragment() {
+public class ProfessionalNightsFragment extends Fragment{
+    public ProfessionalNightsFragment() {
     }
 
     @Override
@@ -42,7 +41,7 @@ public class EventsFragment extends Fragment {
         AlphaInAnimationAdapter alphaInAnimationAdapter = new AlphaInAnimationAdapter(menu_itemAdapter);
         alphaInAnimationAdapter.setAbsListView(gridView);
         gridView.setAdapter(alphaInAnimationAdapter);
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch(position){
@@ -77,7 +76,7 @@ public class EventsFragment extends Fragment {
                         break;
                 }
             }
-        });
+        });*/
         return rootView;
     }
 
@@ -102,15 +101,10 @@ public class EventsFragment extends Fragment {
      */
     public List<Menu_Item> createAllMenu_Items() {
         List<Menu_Item> Menu_Items = new ArrayList<Menu_Item>();
-        Menu_Items.add(new Menu_Item("Dance","",R.drawable.bits));
-        Menu_Items.add(new Menu_Item("Big 3","Info about big3",R.drawable.bits));
-        Menu_Items.add(new Menu_Item("Drama","",R.drawable.ic_launcher));
-        Menu_Items.add(new Menu_Item("Music","",R.drawable.ic_launcher));
-        Menu_Items.add(new Menu_Item("Fine Arts","",R.drawable.ic_launcher));
-        Menu_Items.add(new Menu_Item("Literary","",R.drawable.ic_launcher));
-        Menu_Items.add(new Menu_Item("Quiz","",R.drawable.ic_launcher));
-        Menu_Items.add(new Menu_Item("Miscellaneous","",R.drawable.ic_launcher));
-        Menu_Items.add(new Menu_Item("Moot Court","",R.drawable.ic_launcher));
+        Menu_Items.add(new Menu_Item("Night 1","",R.drawable.bits));
+        Menu_Items.add(new Menu_Item("Night 2","",R.drawable.ic_launcher));
+        Menu_Items.add(new Menu_Item("Shankar mahadevan"," Ready yourselves for some uncontrollable mayhem now, people!",R.drawable.shankarmahadevan));
+
         return Menu_Items;
     }
 
@@ -156,7 +150,7 @@ public class EventsFragment extends Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             View result = convertView;
             if (result == null) {
-                result = mInflater.inflate(R.layout.eventsfragment_grid_item, parent, false);
+                result = mInflater.inflate(R.layout.professionalnightsfragment_grid_item, parent, false);
             }
 
             // Try to get view cache or create a new one if needed

@@ -75,7 +75,9 @@ public class MainActivity extends Activity
                         .replace(R.id.container, new EventsFragment())
                         .commit();
                 break;
-            case 2:
+            case 2: fragmentManager.beginTransaction()
+                    .replace(R.id.container, new ProfessionalNightsFragment())
+                    .commit();
                 break;
             case 3:
                 break;
