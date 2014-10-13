@@ -102,14 +102,14 @@ public class EventsFragment extends Fragment {
      */
     public List<Menu_Item> createAllMenu_Items() {
         List<Menu_Item> Menu_Items = new ArrayList<Menu_Item>();
-        Menu_Items.add(new Menu_Item("Dance","",R.drawable.bits));
-        Menu_Items.add(new Menu_Item("Big 3","Info about big3",R.drawable.bits));
-        Menu_Items.add(new Menu_Item("Drama","",R.drawable.ic_launcher));
-        Menu_Items.add(new Menu_Item("Music","",R.drawable.ic_launcher));
-        Menu_Items.add(new Menu_Item("Fine Arts","",R.drawable.ic_launcher));
+        Menu_Items.add(new Menu_Item("Dance","",R.drawable.dance));
+        Menu_Items.add(new Menu_Item("Big 3","Info about big3",R.drawable.b3));
+        Menu_Items.add(new Menu_Item("Drama","",R.drawable.drama));
+        Menu_Items.add(new Menu_Item("Music","",R.drawable.music));
+        Menu_Items.add(new Menu_Item("Fine Arts","",R.drawable.art));
         Menu_Items.add(new Menu_Item("Literary","",R.drawable.ic_launcher));
-        Menu_Items.add(new Menu_Item("Quiz","",R.drawable.ic_launcher));
-        Menu_Items.add(new Menu_Item("Miscellaneous","",R.drawable.ic_launcher));
+        Menu_Items.add(new Menu_Item("Quiz","",R.drawable.quiz));
+        Menu_Items.add(new Menu_Item("Miscellaneous","",R.drawable.misc));
         Menu_Items.add(new Menu_Item("Moot Court","",R.drawable.ic_launcher));
         return Menu_Items;
     }

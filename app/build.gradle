@@ -28,4 +28,6 @@ dependencies {
     compile 'com.android.support:support-v13:20.0.0'
     compile 'com.github.flavienlaurent.discrollview:library:0.0.2@aar'
     compile group:'com.squareup.picasso', name:'picasso', version:'2.3.4'
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+    // For tinted Statusbar
 }
