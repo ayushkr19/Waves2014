@@ -59,6 +59,11 @@ public class MainActivity extends Activity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
     }
 
+    public void m(View v)
+    {
+        Intent i=new Intent(MainActivity.this,MapActivity.class);
+        startActivity(i);
+    }
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
