@@ -23,5 +23,11 @@
     <string name="title_section3">Section 3</string>
     <string name="hello_world">Hello world!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
-</resources>
+    <string name="about_con">Convener</string>
+    <string name="about_events">Events Head</string>
+    <string name="about_special_nights">Special Nights Head</string>
+    <string name="about_sponsorship">Sponsorship Head</string>
+    <string name="about_pub_pr">Publicity and PR Head</string>
+    <string name="about_research">Research Head</string>
+    <string name="about_media">Media Head</string>
+    </resources>

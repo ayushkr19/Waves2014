@@ -88,7 +88,9 @@ public class MainActivity extends Activity
                     .replace(R.id.container, new SponsorsFragment())
                     .commit();
                 break;
-            case 6:
+            case 6:fragmentManager.beginTransaction()
+                    .replace(R.id.container, new RegistrationsFragment())
+                    .commit();
                 break;
 
         }
