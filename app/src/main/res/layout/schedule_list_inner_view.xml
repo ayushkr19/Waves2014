@@ -12,30 +12,89 @@
         android:layout_width="10dp"
         android:layout_height="match_parent"
         android:src="@drawable/green"/>
-    <TextView
-        android:layout_margin="@dimen/small_margin"
-        android:id="@+id/startTime_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
-       android:text="Start time"/>
 
-    <TextView
-        android:layout_margin="@dimen/small_margin"
-
-        android:id="@+id/endTime_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="End Time"/>
-
-    <TextView
-        android:layout_margin="@dimen/small_margin"
-
-        android:id="@+id/eventName_tv"
+    <LinearLayout
         android:layout_width="0dp"
-        android:layout_weight="1"
         android:layout_height="match_parent"
-        android:gravity="center_vertical"
-        android:text="Event Name"/>
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_marginLeft="@dimen/small_margin"
+                android:layout_marginRight="@dimen/small_margin"
+                android:id="@+id/startTime_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="bottom"
+                android:textColor="@color/green_text_color"
+                android:textSize="@dimen/text_size_small"
+                android:textAllCaps="true"
+                android:textStyle="italic"
+                android:text="Start time"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="bottom"
+                android:textColor="@color/green_text_color"
+                android:textSize="@dimen/text_size_small"
+                android:textAllCaps="true"
+                android:textStyle="italic"
+                android:text=" - "/>
+
+            <TextView
+                android:layout_marginLeft="@dimen/small_margin"
+                android:layout_marginRight="@dimen/small_margin"
+                android:id="@+id/endTime_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="bottom"
+                android:textColor="@color/green_text_color"
+                android:textSize="@dimen/text_size_small"
+                android:textAllCaps="true"
+                android:textStyle="italic"
+                android:text="End Time"/>
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/small_margin"
+            >
+
+            <TextView
+                android:id="@+id/eventName_tv"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:ellipsize="end"
+                android:textSize="@dimen/text_size_xlarge"
+                android:text="Event Name"/>
+
+            <TextView
+                android:id="@+id/eventCategory_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:textAllCaps="true"
+                android:textColor="@color/main_app_color"
+                android:textSize="@dimen/text_size_medium"
+                android:text="Event Category"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
 </LinearLayout>

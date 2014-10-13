@@ -12,6 +12,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -53,6 +54,9 @@ public class ScheduleActivity extends Activity implements ActionBar.TabListener 
         final ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
@@ -88,11 +92,11 @@ public class ScheduleActivity extends Activity implements ActionBar.TabListener 
         Calendar rightnow = Calendar.getInstance();
         if (rightnow.get(Calendar.DAY_OF_MONTH) == Constants.DAY_0 && rightnow.get(Calendar.MONTH) == Constants.MONTH_0) {
             currentDay = 0;
-        } else if(rightnow.get(Calendar.DAY_OF_MONTH) == Constants.DAY_1 && rightnow.get(Calendar.MONTH) == Constants.MONTH_1){
+        } else if (rightnow.get(Calendar.DAY_OF_MONTH) == Constants.DAY_1 && rightnow.get(Calendar.MONTH) == Constants.MONTH_1) {
             currentDay = 1;
-        }else if(rightnow.get(Calendar.DAY_OF_MONTH) == Constants.DAY_2 && rightnow.get(Calendar.MONTH) == Constants.MONTH_2){
+        } else if (rightnow.get(Calendar.DAY_OF_MONTH) == Constants.DAY_2 && rightnow.get(Calendar.MONTH) == Constants.MONTH_2) {
             currentDay = 2;
-        }else{
+        } else {
             currentDay = 3;
         }
         int hours = rightnow.get(Calendar.HOUR_OF_DAY);
@@ -215,7 +219,7 @@ public class ScheduleActivity extends Activity implements ActionBar.TabListener 
             int dayNumber = args.getInt(DAY_NUMBER);
             db = new DatabaseHandler(getActivity());
             list1 = db.getDayEvents(dayNumber);
-            adapt1 = new MyAdapter(getActivity(), R.layout.schedule_list_inner_view, list1);
+            adapt1 = new MyAdapter(getActivity(), R.layout.schedule_list_inner_view, list1,dayNumber);
             ListView listTask1 = (ListView) rootView.findViewById(R.id.listView1);
             listTask1.setAdapter(adapt1);
             return rootView;
@@ -227,20 +231,26 @@ public class ScheduleActivity extends Activity implements ActionBar.TabListener 
         Context context;
         List<EventsObject> scheduleList = new ArrayList<EventsObject>();
         int layoutResourceId;
+        int dayNumber;
 
         public MyAdapter(Context context, int layoutResourceId,
-                         List<EventsObject> objects) {
+                         List<EventsObject> objects, int dayNumber) {
             super(context, layoutResourceId, objects);
             this.layoutResourceId = layoutResourceId;
             this.scheduleList = objects;
             this.context = context;
+            this.dayNumber = dayNumber;
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
+
+            Typeface tfc = Typeface.createFromAsset(context.getAssets(), "fonts/roboto-regular.ttf");
+
             TextView startTime = null;
             TextView endTime = null;
             TextView eventName = null;
+            TextView eventCategory = null;
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) context
                         .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -249,15 +259,20 @@ public class ScheduleActivity extends Activity implements ActionBar.TabListener 
                 startTime = (TextView) convertView.findViewById(R.id.startTime_tv);
                 endTime = (TextView) convertView.findViewById(R.id.endTime_tv);
                 eventName = (TextView) convertView.findViewById(R.id.eventName_tv);
+                eventCategory = (TextView) convertView.findViewById(R.id.eventCategory_tv);
+
+                eventName.setTypeface(tfc);
 
                 convertView.setTag(startTime);
                 convertView.setTag(endTime);
                 convertView.setTag(eventName);
+                convertView.setTag(eventCategory);
 
             } else {
                 startTime = (TextView) convertView.getTag();
                 endTime = (TextView) convertView.getTag();
                 eventName = (TextView) convertView.getTag();
+                eventCategory = (TextView) convertView.getTag();
             }
             EventsObject current = scheduleList.get(position);
             startTime.setText(current.getStart_time());
@@ -269,16 +284,54 @@ public class ScheduleActivity extends Activity implements ActionBar.TabListener 
             eventName.setText(current.getName());
             eventName.setTag(current);
 
+            eventCategory.setText(current.getType());
+            eventCategory.setTag(current);
+
             Calendar rightnow = Calendar.getInstance();
             int hours = rightnow.get(Calendar.HOUR_OF_DAY);
             int minutes = rightnow.get(Calendar.MINUTE);
-            String time = String.valueOf(hours) +":" + String.valueOf(minutes);
+            String time = String.valueOf(hours) + ":" + String.valueOf(minutes);
 
-            if(time.compareTo(current.getStart_time()) > 0 && time.compareTo(current.getEnd_time())< 0){
-                convertView.findViewById(R.id.ongoing).setVisibility(View.VISIBLE);
-            }else {
-                convertView.findViewById(R.id.ongoing).setVisibility(View.INVISIBLE);
+
+            switch (dayNumber) {
+                case 0:
+                    if (rightnow.get(Calendar.DAY_OF_MONTH) == Constants.DAY_0 && rightnow.get(Calendar.MONTH) == Constants.MONTH_0) {
+                        if (time.compareTo(current.getStart_time()) > 0 && time.compareTo(current.getEnd_time()) < 0) {
+                            convertView.findViewById(R.id.ongoing).setVisibility(View.VISIBLE);
+                        } else {
+                            convertView.findViewById(R.id.ongoing).setVisibility(View.INVISIBLE);
+                        }
+                    }
+                    break;
+                case 1:
+                    if (rightnow.get(Calendar.DAY_OF_MONTH) == Constants.DAY_1 && rightnow.get(Calendar.MONTH) == Constants.MONTH_1) {
+                        if (time.compareTo(current.getStart_time()) > 0 && time.compareTo(current.getEnd_time()) < 0) {
+                            convertView.findViewById(R.id.ongoing).setVisibility(View.VISIBLE);
+                        } else {
+                            convertView.findViewById(R.id.ongoing).setVisibility(View.INVISIBLE);
+                        }
+                    }
+                    break;
+                case 2:
+                    if (rightnow.get(Calendar.DAY_OF_MONTH) == Constants.DAY_2 && rightnow.get(Calendar.MONTH) == Constants.MONTH_2) {
+                        if (time.compareTo(current.getStart_time()) > 0 && time.compareTo(current.getEnd_time()) < 0) {
+                            convertView.findViewById(R.id.ongoing).setVisibility(View.VISIBLE);
+                        } else {
+                            convertView.findViewById(R.id.ongoing).setVisibility(View.INVISIBLE);
+                        }
+                    }
+                    break;
+                case 3:
+                    if (rightnow.get(Calendar.DAY_OF_MONTH) == Constants.DAY_3 && rightnow.get(Calendar.MONTH) == Constants.MONTH_3) {
+                        if (time.compareTo(current.getStart_time()) > 0 && time.compareTo(current.getEnd_time()) < 0) {
+                            convertView.findViewById(R.id.ongoing).setVisibility(View.VISIBLE);
+                        } else {
+                            convertView.findViewById(R.id.ongoing).setVisibility(View.INVISIBLE);
+                        }
+                    }
+                    break;
             }
+
 
             return convertView;
 
