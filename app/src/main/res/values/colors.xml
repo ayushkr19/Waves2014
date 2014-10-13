@@ -39,6 +39,8 @@
 
     <color name="green_text_color">#004400</color>
 
+    <color name="main_app_color">#4a148c</color>
+
 
 
 </resources>
