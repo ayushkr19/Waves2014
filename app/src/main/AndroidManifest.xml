@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mobappclub.waves2014" >
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.Waves" >
+        android:theme="@style/Theme.Waves"
+
+
+    >
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyAZXWmVwFqQrN2f4CqTpUZDxC2T1x6tmbg" />
+
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <activity
             android:name="com.mobappclub.waves2014.MainActivity"
             android:label="@string/app_name" >
@@ -25,6 +37,11 @@
             android:label="@string/title_activity_schedule_activity"
             android:parentActivityName="com.mobappclub.waves2014.MainActivity">
         </activity>
+        <activity
+            android:name="com.mobappclub.waves2014.MapActivity"
+            android:label="@string/title_activity_map_activity" >
+        </activity>
+
     </application>
 
 </manifest>
