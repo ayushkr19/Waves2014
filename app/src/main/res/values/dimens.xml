@@ -49,5 +49,6 @@
     <dimen name="normal_margin">35dp</dimen>
     <dimen name="large_margin">50dp</dimen>
     <dimen name="very_large_margin">90dp</dimen>
+    <dimen name="eventsfragment_grid_item_height">300dp</dimen>
 
 </resources>

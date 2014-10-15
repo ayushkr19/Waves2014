@@ -2,4 +2,5 @@
 <resources>
     <!-- Number of columns in the grid view, which changes based on device size. -->
     <integer name="num_columns">1</integer>
+    <integer name="num_columns_events">1</integer>
 </resources>

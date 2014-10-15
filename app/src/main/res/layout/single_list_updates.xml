@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:scrollHorizontally="true"
+            android:textColor="@color/body_text_event_category_headers"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_timestamp"
+            style="@style/TextHeaderSubForUpdates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"         
+            android:ellipsize="marquee"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_text_cat"
+        android:layout_marginBottom="@dimen/events_detail_margin_header"
+        android:alpha="0.7"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/events_detail_margin_header"
+        android:autoLink="all"
+        android:lineSpacingExtra="@dimen/line_spacing_cat" />
+
+</LinearLayout>

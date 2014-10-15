@@ -5,10 +5,10 @@
     android:layout_height="match_parent">
 
     <GridView
-        android:id="@+id/grid"
+        android:id="@+id/grid_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="@integer/num_columns_events"
+        android:numColumns="@integer/num_columns"
         android:background="@color/main_app_color"
         android:listSelector="@android:color/transparent"
         />

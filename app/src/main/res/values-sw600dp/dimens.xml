@@ -16,5 +16,6 @@
     <dimen name="margin_text_cat">3dp</dimen>
 
     <dimen name="maxheight_detail">300dp</dimen>
+    <dimen name="eventsfragment_grid_item_height">350dp</dimen>
 
 </resources>

@@ -91,17 +91,15 @@ public class MainActivity extends Activity
                 break;
             case 3:
                 break;
-            case 4:Intent f=new Intent(MainActivity.this,ScheduleActivity.class);
-                startActivity(f);
-                break;
-            case 5:fragmentManager.beginTransaction()
+            case 4:fragmentManager.beginTransaction()
                     .replace(R.id.container, new SponsorsFragment())
                     .commit();
                 break;
-            case 6:fragmentManager.beginTransaction()
+            case 5:fragmentManager.beginTransaction()
                     .replace(R.id.container, new RegistrationsFragment())
                     .commit();
                 break;
+
 
         }
         setTitle(position);
@@ -127,9 +125,7 @@ public class MainActivity extends Activity
             case 6:
                 mTitle = getString(R.string.navdrawer_section6);
                 break;
-            case 7:
-                mTitle = getString(R.string.navdrawer_section7);
-                break;
+
 
         }
         //setTitle(number);
@@ -163,9 +159,7 @@ public class MainActivity extends Activity
             case 5:
                 mTitle = getString(R.string.navdrawer_section6);
                 break;
-            case 6:
-                mTitle = getString(R.string.navdrawer_section7);
-                break;
+
             default:
                 Toast.makeText(this, "Title not found", Toast.LENGTH_SHORT).show();
                 break;

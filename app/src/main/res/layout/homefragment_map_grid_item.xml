@@ -2,15 +2,11 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="200dp">
 
-    <GridView
-        android:id="@+id/grid"
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="@integer/num_columns_events"
-        android:background="@color/main_app_color"
-        android:listSelector="@android:color/transparent"
-        />
-
+        android:src="@drawable/map1"
+        android:scaleType="center"/>
 </LinearLayout>

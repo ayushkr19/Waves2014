@@ -6,9 +6,8 @@
     <string name="navdrawer_section2">Events</string>
     <string name="navdrawer_section3">Professional Nights</string>
     <string name="navdrawer_section4">Specials</string>
-    <string name="navdrawer_section5">Schedule</string>
-    <string name="navdrawer_section6">Sponsors</string>
-    <string name="navdrawer_section7">Registrations</string>
+    <string name="navdrawer_section5">Sponsors</string>
+    <string name="navdrawer_section6">Registrations</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
@@ -32,4 +31,5 @@
     <string name="about_pub_pr">Publicity and PR Head</string>
     <string name="about_research">Research Head</string>
     <string name="about_media">Media Head</string>
-    </resources>
+    <string name="long_text">Waves, the greatly popular annual cultural fest of BITS, Goa is among the fastest growing Cultfests of the country.</string>
+</resources>

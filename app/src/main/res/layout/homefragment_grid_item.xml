@@ -2,9 +2,11 @@
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="@dimen/eventsfragment_grid_item_height"
+    android:layout_height="350dp"
     android:layout_width="match_parent"
-   >
+    android:background="@drawable/overlay_bg_home"
+
+    >
 
     <ImageView
         android:id="@+id/image"
@@ -13,16 +15,16 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:contentDescription="@null"
-        android:scaleType="fitXY"/>
+        android:src="@drawable/waves"
+        android:scaleType="fitCenter"/>
 
     <LinearLayout
-        android:background="@drawable/overlay_bg"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:padding="2dp">
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/title"
@@ -37,9 +39,9 @@
             android:id="@+id/subtitle"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:maxLines="1"
             android:layout_marginLeft="2dp"
             android:ellipsize="end"
+            android:text="@string/long_text"
             android:fontFamily="sans-serif"
             android:textAppearance="?android:textAppearanceSmallInverse"/>
 

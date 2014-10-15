@@ -37,4 +37,10 @@
         <item name="android:ellipsize">end</item>
     </style>
 
+    <style name="TextHeaderSubForUpdates">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/body_text_2</item>
+    </style>
+
 </resources>

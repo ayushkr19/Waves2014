@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import android.app.ListActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 public class MapLocClickList extends ListActivity {
 
@@ -43,10 +44,11 @@ public class MapLocClickList extends ListActivity {
 		if(id == 1){
 			//Add events to location list 
 	        for (EventsObject event : events ) {
-	        	
+                Log.d("Test id1",event.getLocation());
 	        	if(event.getLocation().startsWith("A-")){
-	        		
-	        		//Show events on that location
+                    Log.d("Test id1 startswith",event.getLocation());
+
+                    //Show events on that location
 	        		name.add(event.getName());
 	        		time.add(event.getStart_time());
 	        		type.add(event.getType());
@@ -65,8 +67,9 @@ public class MapLocClickList extends ListActivity {
 		else if(id == 2){
 			//Add events to location list 
 	        for (EventsObject event : events ) {
-	        	
-	        	if(event.getLocation().startsWith("C-")){
+                Log.d("Test id2",event.getLocation());
+
+                if(event.getLocation().startsWith("C-")){
 	        		
 	        		//Show events on that location
 	        		name.add(event.getName());
@@ -84,8 +87,9 @@ public class MapLocClickList extends ListActivity {
 			
 		//Add events to location list 
         for (EventsObject event : events ) {
-        	
-        	if(event.getLocation().equalsIgnoreCase(location)){
+            Log.d("Test id3",event.getLocation());
+
+            if(event.getLocation().equalsIgnoreCase(location)){
         		
         		//Show events on that location
         		name.add(event.getName());
@@ -135,9 +139,9 @@ public class MapLocClickList extends ListActivity {
         	body1[m] = bo ;
         	m++ ; 
         }
-        	
-        
 
+        UpdateCustomList adapter = new UpdateCustomList(getApplicationContext() , name1 , time1 , type1 , body1);
+        setListAdapter(adapter);
 
         }
 	

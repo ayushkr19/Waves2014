@@ -111,7 +111,6 @@ public class NavigationDrawerFragment extends Fragment {
         titles.add("Events");
         titles.add("Professional Nights");
         titles.add("Specials");
-        titles.add("Schedule");
         titles.add("Sponsors");
         titles.add("Registrations");
        /* mDrawerListView.setAdapter(new ArrayAdapter<String>(

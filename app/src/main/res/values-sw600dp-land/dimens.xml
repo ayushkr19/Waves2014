@@ -13,4 +13,5 @@
     <dimen name="line_spacing">7dp</dimen>
     <dimen name="line_spacing_cat">5dp</dimen>
     <dimen name="margin_text_cat">3dp</dimen>
+    <dimen name="eventsfragment_grid_item_height">400dp</dimen>
 </resources>
