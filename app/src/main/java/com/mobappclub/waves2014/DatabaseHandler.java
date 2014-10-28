@@ -24,6 +24,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     private static final String TABLE_SPONSOR = "sponsors";
 
+    // Updates table name
+
+    private static final String TABLE_UPDATES = "generalupdates";
+
 
     // Events table name
     private static final String TABLE_EVENTS = "events";
@@ -51,6 +55,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_SPONSORNAME = "sponsorname";
     private static final String KEY_IMGLINK = "sponsorimagelink";
     private static final String KEY_LINK = "sponsorlink";
+
+
+    // Column for update table
+
+    private static final String KEY_TYPE_OF_UPDATE = "typeofupdate";
+    private static final String KEY_EVENT_ID = "eventid";
+    private static final String KEY_TIMESTAMP = "times";
+    private static final String KEY_UPDATE_HEAD = "updatebody";
+    private static final String KEY_UPDATE_BODY = "updatehead";
 
 
     public DatabaseHandler(Context context) {
@@ -84,6 +97,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_FOLLOWED + " INTEGER"
                 + ")" ;
         db.execSQL(CREATE_EVENTS_TABLE);
+
+
+        // Create updates table
+        String CREATE_UPDATES_TABLE = "CREATE TABLE " + TABLE_UPDATES + "("
+                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_TYPE_OF_UPDATE
+                + " TEXT," + KEY_EVENT_ID + " TEXT," + KEY_TIMESTAMP + " TEXT,"
+                + KEY_UPDATE_HEAD + " TEXT," + KEY_UPDATE_BODY + " TEXT" + ")";
+        db.execSQL(CREATE_UPDATES_TABLE);
+
+
         // Create Sponsor table
         String CREATE_SPONSOR_TABLE = "CREATE TABLE " + TABLE_SPONSOR + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_SPONSORNAME + " TEXT,"
@@ -100,7 +123,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_EVENTS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_SPONSOR);
-
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_UPDATES);
         // Create tables again
         onCreate(db);
     }
@@ -151,6 +174,22 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     }
 
+    // Adding a new Update
+    void addUpdate(UpdateObject update) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues value = new ContentValues();
+        value.put(KEY_TYPE_OF_UPDATE, update.getType());
+        value.put(KEY_EVENT_ID, update.getEvent_Id());
+        value.put(KEY_TIMESTAMP, update.getTimeStamp());
+        value.put(KEY_UPDATE_HEAD, update.getHead());
+        value.put(KEY_UPDATE_BODY, update.getBody());
+
+        // Insert new Row
+        db.insert(TABLE_UPDATES, null, value);
+        db.close();
+
+    }
      // Getting All Events for a particular day
      public List<EventsObject> getAllEvents() {
          List<EventsObject> eventList = new ArrayList<EventsObject>();
@@ -227,6 +266,39 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // return event list
         return eventList;
     }
+
+
+    public List<UpdateObject> getAllUpdates() {
+        List<UpdateObject> updates = new ArrayList<UpdateObject>();
+        // Select table query
+        String selectQuery = "SELECT  * FROM " + TABLE_UPDATES + " ORDER BY id DESC";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+
+                UpdateObject update = new UpdateObject();
+                update.setID(Integer.parseInt(cursor.getString(0)));
+                update.setType(cursor.getString(1));
+                update.setEvent_Id(cursor.getString(2));
+                update.setTimeStamp(cursor.getString(3));
+                update.setHead(cursor.getString(4));
+                update.setBody(cursor.getString(5));
+
+                updates.add(update);
+
+            } while (cursor.moveToNext());
+        }
+        db.close();
+        cursor.close();
+
+        return updates;
+
+    }
+
     // Getting all sponsors
     public List<SponsorObject> getAllSponsors() {
         List<SponsorObject> sponsorList = new ArrayList<SponsorObject>();
@@ -283,7 +355,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
         return update;
     }
-
+    //Removing Update
+    public void removeUpdate(String update_head,String update_body,String timestamp) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_UPDATES, KEY_UPDATE_HEAD + " = ?" + " AND " + KEY_UPDATE_BODY +" = ?"+ " AND " + KEY_TIMESTAMP + " = ?",
+                new String[] { update_head, update_body, timestamp});
+        db.close();
+    }
     public void deleteEvent(EventsObject event) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_EVENTS, KEY_ID + " = ?",
@@ -296,6 +374,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_SPONSOR , KEY_ID + " = ?",
                 new String[] { String.valueOf(sp.getID()) });
+        db.close();
+    }
+    // Removing Sponsor
+    public void removeSponsor(String sponsor_name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_SPONSOR, KEY_SPONSORNAME + " = ?",
+                new String[] { sponsor_name });
         db.close();
     }
     // Getting sponsor Count
@@ -328,7 +413,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
         return count;
     }
+    public int getUpdatesCount() {
+        // TODO Auto-generated method stub
+        String countQuery = "SELECT  * FROM " + TABLE_UPDATES;
+        SQLiteDatabase db = this.getReadableDatabase();
 
+        Cursor cursor = db.rawQuery(countQuery, null);
+        int count = cursor.getCount();
+
+        // return count
+
+        cursor.close();
+        db.close();
+        return count;
+    }
     
 
     

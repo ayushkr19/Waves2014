@@ -6,8 +6,9 @@
     <string name="navdrawer_section2">Events</string>
     <string name="navdrawer_section3">Professional Nights</string>
     <string name="navdrawer_section4">Specials</string>
-    <string name="navdrawer_section5">Sponsors</string>
-    <string name="navdrawer_section6">Registrations</string>
+    <string name="navdrawer_section6">Sponsors</string>
+    <string name="navdrawer_section5">Updates</string>
+    <string name="navdrawer_section7">Registrations</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
@@ -20,7 +21,7 @@
     <string name="title_activity_schedule_activity">ScheduleActivity</string>
     <string name="title_activity_map_activity">MapActivity</string>
     <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
+     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
     <string name="hello_world">Hello world!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -32,4 +33,35 @@
     <string name="about_research">Research Head</string>
     <string name="about_media">Media Head</string>
     <string name="long_text">Waves, the greatly popular annual cultural fest of BITS, Goa is among the fastest growing Cultfests of the country.</string>
+    <string name="dhinchak"><p>Dhinchak is the bollywood group dance competition at Waves, which debuted in the 2012 edition. As the name suggests, the event is a high energy affair comprising of unorthodox, entertaining moves to complement peppy bollywood songs. The first edition of Dhinchak was a big success, drawing heavy footfall and great quality of participation.
+		        </p>
+    <h2>dhinchak rules</h2>
+    <p>Category: Gold</p>
+    <p>Team Composition: 6-12+3</p>
+    <p>Teams Per College: Unlimited</p>
+    <p>Registration: Online/On the spot</p>
+    <p>Duration: 4-6 minutes per team</p>
+
+    <h3>elimination round:</h3>
+    <ol>
+        <li>A prepared sequence of about 4 - 6 minutes has to be performed.</li>
+        <li>Tracks exceeding 6 minutes will be given negative points.</li>
+        <li>Only Bollywood songs or their remixes are allowed. Else the team will be disqualified.</li>
+        <li>A minimum of 6 dancers must be present on stage at all times of the performance.</li>
+        <li>It is sufficient for one person of the group to wear the entire costume of the dance. However if the costume is not uniform, participants must wear one of each type.</li>
+        <li>Usage of props is allowed but it does not carry extra credit. Usage of props should be consulted with event manager at the time of registration. Usage of any powdered substance(e.g. colour,powder,glaal, etc) has to be informed to the event manager in advance.</li>
+        <li>Teams qualifying for the next round will depend on the number of participants</li>
+        <li>The elimination round takes place completely before judges only, behind closed doors.</li>
+        <li>No lead dancer or solo performances is allowed in any of the rounds.</li>
+        <li>The auditorium screen will not be allowed to be used for any purpose (for example, photos, video, etc.).</li>
+        <li>Usage of external lighting is not allowed.</li>
+        <li>Sound track of the group’s performance should be brought along in a CD/ DVD/ Pen drive.</li>
+    </ol>
+    <h3>final round one:</h3>
+    <ol>
+        <li>The same prepared sequence is performed in front of a large audience in the auditorium. Same rules applicable as above.</li>
+        <li>The auditorium screen shall not be used for any purpose (e.g.: photos, videos etc.).</li>
+        <li>Usage of external lighting is not allowed.</li>
+        <p>*A second round can take place, only if found necessary by the judges and the event managers. The rules for the second round (if it takes place) will be disclosed at the end of the elimination round. So at least one member from every group must stay back till the results of the elimination round are announced.</p>
+        <p>**The judges’ decision will be final and binding to all. The college reserves the right, in its sole discretion, to disqualify any entry at any time in the event if it is determined that the entrant has not complied with these rules or has acted in an unsportsmanlike or disruptive manner.</p></ol></string>
 </resources>

@@ -16,7 +16,7 @@
         android:paddingTop="@dimen/normal_padding" >
 
         <TextView
-
+            android:id="@+id/t"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -48,9 +48,10 @@
             android:paddingTop="@dimen/normal_padding"
             android:text="Event Heading" />
 
+
+
         <TextView
             android:id="@+id/tv_location"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/events_detail_margin"
@@ -59,6 +60,7 @@
             android:paddingLeft="@dimen/normal_padding_leftright"
             android:paddingRight="@dimen/normal_padding_leftright"
             android:text="@string/location" />
+
     </LinearLayout>
 
     <View

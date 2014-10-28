@@ -111,8 +111,10 @@ public class NavigationDrawerFragment extends Fragment {
         titles.add("Events");
         titles.add("Professional Nights");
         titles.add("Specials");
+        titles.add("Updates");
         titles.add("Sponsors");
         titles.add("Registrations");
+
        /* mDrawerListView.setAdapter(new ArrayAdapter<String>(
                 getActionBar().getThemedContext(),
                 android.R.layout.simple_list_item_activated_1,

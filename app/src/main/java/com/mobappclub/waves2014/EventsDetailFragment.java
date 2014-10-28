@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -28,7 +29,10 @@ public class EventsDetailFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_events_detail,container,false);
+       View rv= inflater.inflate(R.layout.fragment_events_detail,container,false);
+        TextView v=(TextView)getActivity().findViewById(R.id.t);
+        v.setText(getResources().getString(R.string.dhinchak));
+        return rv;
     }
 
     @Override

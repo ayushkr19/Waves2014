@@ -7,6 +7,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -38,12 +39,20 @@ public class MainActivity extends Activity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
-
+    Boolean no_net_check = false;
+    private static final String OPENED_KEY = "OPENED_KEY";
+    private SharedPreferences prefs = null;
+    private SharedPreferences prefs1;
+    private Boolean opened = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-         mNavigationDrawerFragment = (NavigationDrawerFragment)
+
+        prefs1 = getSharedPreferences("notifications_prefs", MODE_PRIVATE);
+
+        no_net_check = getIntent().getBooleanExtra("no_net", false);
+        mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
         DatabaseHandler db=new DatabaseHandler(getApplicationContext());
@@ -89,13 +98,19 @@ public class MainActivity extends Activity
                     .replace(R.id.container, new ProfessionalNightsFragment())
                     .commit();
                 break;
-            case 3:
+            case 3:fragmentManager.beginTransaction()
+                    .replace(R.id.container, new SpecialsFragment())
+                    .commit();
                 break;
             case 4:fragmentManager.beginTransaction()
-                    .replace(R.id.container, new SponsorsFragment())
+                    .replace(R.id.container, new UpdatesFragment())
                     .commit();
                 break;
             case 5:fragmentManager.beginTransaction()
+                    .replace(R.id.container, new SponsorsFragment())
+                    .commit();
+                break;
+            case 6:fragmentManager.beginTransaction()
                     .replace(R.id.container, new RegistrationsFragment())
                     .commit();
                 break;
@@ -124,6 +139,9 @@ public class MainActivity extends Activity
                 break;
             case 6:
                 mTitle = getString(R.string.navdrawer_section6);
+                break;
+            case 7:
+                mTitle = getString(R.string.navdrawer_section7);
                 break;
 
 
@@ -158,6 +176,9 @@ public class MainActivity extends Activity
                 break;
             case 5:
                 mTitle = getString(R.string.navdrawer_section6);
+                break;
+            case 6:
+                mTitle = getString(R.string.navdrawer_section7);
                 break;
 
             default:
